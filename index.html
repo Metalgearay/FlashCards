@@ -7,8 +7,22 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
-    <div ng-app="FlashCard">
-    {{2+2}}
+    <div ng-app="FlashCard"ng-controller="MainController">
+    <div class="flash-card"ng-controller="FlashCardController">
+    <h1 ng-repeat="flashcards in flashCards">
+            {{flashcards.question}}
+        </h1>
+
+    <ul class="flash-card-answers">
+        <li class="flash-card-answer" ng-repeat="answer in flashCards" ng-click="answerQuestion(answer)">
+            {{answer.text}
+            <h2 class="answer-feedback" ng-show="answered">
+            <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
+             <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
+               </h2>
+        </li>
+    </ul>
+</div>
     </div>
     <script src="angular.js">
     </script>
